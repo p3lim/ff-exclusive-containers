@@ -6,6 +6,3 @@ A supplementary Firefox addon to [Multi-Account Containers](https://addons.mozil
 
 For more information about containers, see this blog post from Mozilla:  
 <https://blog.mozilla.org/firefox/introducing-firefox-multi-account-containers/>
-
-
-https://extensionworkshop.com/documentation/publish/package-your-extension/
