@@ -6,3 +6,10 @@ A supplementary Firefox addon to [Multi-Account Containers](https://addons.mozil
 
 For more information about containers, see this blog post from Mozilla:  
 <https://blog.mozilla.org/firefox/introducing-firefox-multi-account-containers/>
+
+### Building
+
+```bash
+web-ext build
+web-ext sign --api-key ... --api-secret ...
+```
