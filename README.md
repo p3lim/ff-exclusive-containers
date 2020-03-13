@@ -1,6 +1,6 @@
 # Exclusive Containers
 
-A supplementary Firefox addon to [Multi-Account Containers](https://addons.mozilla.org/en-GB/firefox/addon/multi-account-containers/) (MAC) that will prevent new tabs to open in the same container as the originating container unless it's from the same domain. If not from the same domain it will open in the default container instead (or another container if the target domain is designated a container as well, handled by MAC).
+A supplementary Firefox addon to [Multi-Account Containers](https://addons.mozilla.org/en-GB/firefox/addon/multi-account-containers/) (MAC) that will prevent links from opening in the same container as the originating container unless it's on the same domain. If not the same domain the link will open in the default container instead (or another container if the link's domain is designated a container as well, handled by MAC).
 
 [Available on addons.mozilla.org](https://addons.mozilla.org/en-GB/firefox/addon/exclusive-containers/)
 
