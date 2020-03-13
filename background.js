@@ -51,7 +51,7 @@ async function onBeforeRequest(details){
 			active: tab.active
 		})
 
-		// block the request for the new tab
+		// block the request for the old tab
 		return {cancel: true}
 	}
 }
