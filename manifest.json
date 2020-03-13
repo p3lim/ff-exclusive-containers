@@ -1,0 +1,16 @@
+{
+	"manifest_version": 2,
+	"name": "Exclusive Containers",
+	"version": "0.1.0",
+	"description": "Ensure exclusivity of containers with designated domains by opening other domains in a default container.",
+	"permissions": [
+		"<all_urls>",
+		"webRequest",
+		"webRequestBlocking",
+		"cookies",
+		"tabs"
+	],
+	"background": {
+		"scripts": ["background.js"]
+	}
+}
