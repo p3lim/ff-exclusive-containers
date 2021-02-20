@@ -1,0 +1,34 @@
+name: Test and build extension
+on:
+  push:
+    branches:
+      - master
+    tags-ignore:
+      - '**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Install node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14.x
+
+      - name: Install web-ext
+        run: npm install -g web-ext@^5
+
+      - name: Run tests
+        run: web-ext lint
+
+      - name: Build extension
+        run: web-ext build
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: exclusive-containers-artifact
+          path: web-ext-artifacts/*.zip

@@ -1,0 +1,43 @@
+name: Sign and release extension
+on:
+  push:
+    tags:
+      - '**'
+
+jobs:
+  sign:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Install node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14.x
+
+      - name: Install web-ext
+        run: npm install -g web-ext@^5
+
+      - name: Sign extension
+        run: web-ext sign
+        env:
+          WEB_EXT_API_KEY: ${{ secrets.AMO_API_KEY }}
+          WEB_EXT_API_SECRET: ${{ secrets.AMO_API_SECRET }}
+
+      # https://extensionworkshop.com/documentation/develop/web-ext-command-reference/#web-ext-sign
+      # ^ under "--channel" it notes that this will most likely fail, so we'll ignore the failures
+      - name: Publish extension
+        run: |
+          web-ext sign --channel=listed
+          exit 0
+        env:
+          WEB_EXT_API_KEY: ${{ secrets.AMO_API_KEY }}
+          WEB_EXT_API_SECRET: ${{ secrets.AMO_API_SECRET }}
+
+      - name: Create release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: web-ext-artifacts/*.xpi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
