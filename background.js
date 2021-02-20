@@ -11,7 +11,6 @@ const defaultContainers = {
 	'firefox-private': true,
 }
 
-
 async function onUpdated(tabId, changeInfo, tab){
 	// whenever a tab in our list of tabs marked for destruction is "complete", remove it
 	if(destroyTabs[tabId] && changeInfo.status && changeInfo.status === 'complete'){
