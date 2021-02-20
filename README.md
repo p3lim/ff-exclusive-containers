@@ -10,6 +10,7 @@ For more information about containers, see this blog post from Mozilla:
 ### Building
 
 ```bash
+npm install -g web-ext
 web-ext build
 web-ext sign --api-key ... --api-secret ...
 ```
